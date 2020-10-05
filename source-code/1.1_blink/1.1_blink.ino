@@ -11,9 +11,10 @@ void setup() {
 
 void loop() {
   
-  
-  digitalWrite(LED1, LOW); //maybe to be commented out or delayed by a short time to avoid the lamp turning off again too fast
-  delay(1000);
   digitalWrite(LED1, HIGH);
+  delay(500);
+  digitalWrite(LED1, LOW);
+  delay(500);
+  
 
 }
