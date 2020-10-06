@@ -1,5 +1,5 @@
 /*
-Expected Bliking Pattern: (one number counts for 50 ms)
+Expected Bliking Pattern: (one number counts for 500 ms)
 LED1:00000000001111111111000000000011111111110
 LED2:01010000001010111111010100000010101111110
  */
@@ -12,9 +12,9 @@ int State2 = LOW;
 unsigned long time1_before = 0;
 unsigned long time2_before = 0;
 
-const int long_time = 500;
-const int medium_time = 250;
-const int short_time = 50;
+const int long_time = 5000;
+const int medium_time = 2500;
+const int short_time = 500;
 
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
@@ -27,7 +27,7 @@ void setup() {
 
 void loop() {
   unsigned long time_now = millis();
-
+ 
   //LED2 blinks with a frequency of 10 Hz for 
   if (time_now - time1_before < medium_time) {
     if (time_now - time2_before >= short_time){

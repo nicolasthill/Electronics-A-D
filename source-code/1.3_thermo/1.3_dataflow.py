@@ -8,7 +8,7 @@ Created on Mon Oct  5 18:27:03 2020
 import serial
 
 try:
-    arduino = serial.Serial("|dev|ttyACM0", timeout = 1)
+    arduino = serial.Serial("COM11", 9600)
     #|dev|ttyACM0 is placeholder, find  the actual name in the Arduino IDE
     # or: arduino = Serial("COM3")
 except:
@@ -20,9 +20,11 @@ count = 0
 while True: 
 	print(str(arduino.readline())
 """
-while count < 10000:
+while count < 180:
     rawdata.append(str(arduino.readline())) 
     #alternatively: arduino.readline().decode(’utf-8’)
+    count += 1
+    print(count)
 
 
 def clean(L):
@@ -39,7 +41,7 @@ cleandata=clean(rawdata)
 def write(L):
     """ writes data into .txt file
     """
-    file=open("data.txt",mode='w')
+    file=open("data2.txt",mode='w')
     for i in range(len(L)):
         file.write(L[i]+'\n')
     file.close()
